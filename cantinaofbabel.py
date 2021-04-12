@@ -5,15 +5,15 @@ def tarjan_scc(graph, index, low, i, uuid=0, stack=[]):
 	index[i] = low[i] = uuid
 	stack.append(i) # condition for i being on stack is index[i]!=None!=low[i]
 	for j in graph[i]:
-		if j not in low: # node was never visited before
+		if j not in index: # node was never visited before
 			uuid = tarjan_scc(graph, index, low, j, uuid+1, stack)
-		if j in index: # node was not visited by another SCC
+		if j in low: # node was not visited by another SCC
 			low[i] = min(low[i], low[j])
 	if index[i] == low[i]:
 		size = 0
 		while True:
 			j = stack.pop()
-			del index[j]
+			del low[j]
 			size += 1
 			if j == i:
 				break
@@ -35,6 +35,6 @@ for name, lang in characters:
 index = {}
 low = {}
 for name in graph:
-	if name not in low:
+	if name not in index:
 		tarjan_scc(graph, index, low, name)
 print(N - largest)
