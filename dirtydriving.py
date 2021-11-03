@@ -1,5 +1,5 @@
-N, P = map(int, input().split())
-X = [int(i) for i in input().split()]
-X.sort()
-excess = max(P*(i+1)-x for i, x in enumerate(X))
-print(X[0]+excess)
+_, p = map(int, input().split())
+distances = [int(d) for d in input().split()]
+distances.sort()
+delta = max(p * (i + 1) - d for i, d in enumerate(distances))
+print(distances[0] + delta)
