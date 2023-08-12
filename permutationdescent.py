@@ -1,14 +1,6 @@
-# PDC(N, v) = 
-mem = {}
-def PDC(N, v):
-	if v==0 or v==N-1:
-		return 1
-	if (N, v) in mem:
-		return mem[N, v]
-	c = (PDC(N-1, v-1) * (N-v) + PDC(N-1, v) * (v+1)) % 1001113
-	mem[N, v] = c
-	return c
-
+PDC = [[1], [1, 1]]
+for N in range(3, 101):
+	PDC.append([1] + [(PDC[-1][i-1]*(N-i)+PDC[-1][i]*(i+1))%1001113 for i in range(1, N-1)] + [1])
 for _ in range(int(input())):
 	K, N, v = map(int, input().split())
-	print(K, PDC(N, v))
+	print(K, PDC[N-1][v])

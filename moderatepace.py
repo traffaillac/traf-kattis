@@ -1,0 +1,5 @@
+input()
+K = list(map(int, input().split()))
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+print(*(max(min(a, b), min(max(a, b), k)) for k, a, b in zip(K, A, B)))
