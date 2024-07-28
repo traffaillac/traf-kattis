@@ -1,3 +1,4 @@
+# Solution golfed afterwards though I did not keep it :)
 O = "abcdefghijklmnopqrstuvwxyz"
 N = ["@","8","(","|)","3","#","6","[-]","|","_|","|<","1","[]\\/[]","[]\\[]","0","|D","(,)","|Z","$","']['","|_|","\\/","\\/\\/","}{","`/","2"]
 s = input().lower()
