@@ -1,0 +1,5 @@
+k = int(input())
+Y = input()
+F = input()
+e = sum(y==f for y, f in zip(Y, F))
+print(min(k, e) + min(len(Y)-e, len(Y)-k))
